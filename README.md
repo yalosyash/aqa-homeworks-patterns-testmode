@@ -1,4 +1,5 @@
 [![Java CI with Gradle](https://github.com/yalosyash/aqa-homeworks-patterns-testmode/actions/workflows/gradle.yml/badge.svg)](https://github.com/yalosyash/aqa-homeworks-patterns-testmode/actions/workflows/gradle.yml)
+
 # Домашнее задание к занятию «2.3. Patterns»
 
 В качестве результата пришлите ссылку на ваш GitHub-проект в личном кабинете студента на
@@ -96,23 +97,23 @@ JSON.
 // спецификация нужна для того, чтобы переиспользовать настройки в разных запросах
 class AuthTest {
     private static RequestSpecification requestSpec = new RequestSpecBuilder()
-        .setBaseUri("http://localhost")
-        .setPort(9999)
-        .setAccept(ContentType.JSON)
-        .setContentType(ContentType.JSON)
-        .log(LogDetail.ALL)
-        .build();
+            .setBaseUri("http://localhost")
+            .setPort(9999)
+            .setAccept(ContentType.JSON)
+            .setContentType(ContentType.JSON)
+            .log(LogDetail.ALL)
+            .build();
 
     @BeforeAll
     static void setUpAll() {
         // сам запрос
         given() // "дано"
-            .spec(requestSpec) // указываем, какую спецификацию используем 
-            .body(new RegistrationDto("vasya", "password", "active")) // передаём в теле объект, который будет преобразован в JSON
-        .when() // "когда" 
-            .post("/api/system/users") // на какой путь относительно BaseUri отправляем запрос
-        .then() // "тогда ожидаем"
-            .statusCode(200); // код 200 OK
+                .spec(requestSpec) // указываем, какую спецификацию используем 
+                .body(new RegistrationDto("vasya", "password", "active")) // передаём в теле объект, который будет преобразован в JSON
+                .when() // "когда" 
+                .post("/api/system/users") // на какой путь относительно BaseUri отправляем запрос
+                .then() // "тогда ожидаем"
+                .statusCode(200); // код 200 OK
     }
     ...
 }
