@@ -73,8 +73,5 @@ class AuthTest {
         var wrongPassword = getRandomPassword();
         fillingForm(registeredUser.getLogin(), wrongPassword);
         $(error).shouldBe(visible).shouldHave(text("Неверно указан логин или пароль"));
-        // TODO: добавить логику теста в рамках которого будет выполнена попытка входа в личный кабинет с неверным
-        //  паролем, для заполнения поля формы "Логин" используйте пользователя registeredUser,
-        //  "Пароль" - переменную wrongPassword
     }
 }
